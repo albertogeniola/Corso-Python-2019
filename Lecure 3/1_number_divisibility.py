@@ -17,3 +17,13 @@ So... would 99.603‬ be divisible by 17? Use the program you built to check it 
 """
 input_number_a = 10
 input_number_b = 5
+
+resto = input_number_a % input_number_b
+if resto == 0:
+    quoziente = input_number_a / input_number_b
+    messaggio = 'Number {} is divisible by {} (quotient={})'.format(input_number_a, input_number_b, quoziente)
+
+else:
+    messaggio = 'Number {} is not divisible by {} (remainder={})'.format(input_number_a, input_number_b, resto)
+
+print(messaggio)
