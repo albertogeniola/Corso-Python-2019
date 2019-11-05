@@ -19,3 +19,20 @@ data = [29787, 98484, 66083, 27804, 36807, 59754, 72693, 92104, 22534, 42958, 94
 
 
 # The logic -> A number is prime if it's divisible only by itself and 1
+numeri_primi = []
+for numero in data:
+    divisori = []
+    for i in range(1, numero+1):
+        if (numero % i) == 0:
+            # i è un divisore di numero!
+            divisori.append(i)
+    print("I divisori del numero {} sono {}".format(numero, divisori))
+    if len(divisori) == 2:
+        print("Il numero {} è primo!".format(numero))
+        numeri_primi.append(numero)
+
+print("I numeri primi che ho trovato sono: {}".format(numeri_primi))
+numeri_primi.sort()
+max_numero_primo = numeri_primi[-1]
+
+print("Il numero primo più grande che ho trovato è: {}".format(max_numero_primo))
