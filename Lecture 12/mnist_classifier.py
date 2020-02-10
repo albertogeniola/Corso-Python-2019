@@ -87,3 +87,41 @@ while True:
 
 
 # Let's evaluate the model
+wrong_predictions = {}
+digit_count = {
+    '0': 0,
+    '1': 0,
+    '2': 0,
+    '3': 0,
+    '4': 0,
+    '5': 0,
+    '6': 0,
+    '7': 0,
+    '8': 0,
+    '9': 0}
+
+for i in range(0, len(test_x)):
+    x = test_x[i]
+    y = test_y[i]
+    predicted_value = trained_model.predict([x])
+
+    # Keep track for every label of the missed predictions
+    if y != predicted_value:
+        errors = wrong_predictions.get(y, 0)
+        wrong_predictions[y] = errors + 1
+
+    # Also count total digit occurrences
+    digit_count[y]+=1
+
+# Let's print error rate
+for y in wrong_predictions:
+    precision = (1 - wrong_predictions[y])/digit_count[y]
+    print("{label}: {errors_label}".format(label=y, errors_label=wrong_predictions[y]))
+
+# Let's plot it!
+fig = plt.figure()
+ax = fig.add_axes([0, 0, 1, 1])
+labels = wrong_predictions.keys()
+errors = wrong_predictions.values()
+ax.bar(labels, errors)
+plt.show()
