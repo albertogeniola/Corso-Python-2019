@@ -87,41 +87,32 @@ while True:
 
 
 # Let's evaluate the model
-wrong_predictions = {}
-digit_count = {
-    '0': 0,
-    '1': 0,
-    '2': 0,
-    '3': 0,
-    '4': 0,
-    '5': 0,
-    '6': 0,
-    '7': 0,
-    '8': 0,
-    '9': 0}
-
+wrong_predictions = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+digit_count = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+accuracy = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 for i in range(0, len(test_x)):
     x = test_x[i]
     y = test_y[i]
     predicted_value = trained_model.predict([x])
 
     # Keep track for every label of the missed predictions
+    index = int(y)
     if y != predicted_value:
-        errors = wrong_predictions.get(y, 0)
-        wrong_predictions[y] = errors + 1
+        wrong_predictions[index] += 1
 
     # Also count total digit occurrences
-    digit_count[y]+=1
+    digit_count[index] += 1
 
 # Let's print error rate
-for y in wrong_predictions:
-    precision = (1 - wrong_predictions[y])/digit_count[y]
-    print("{label}: {errors_label}".format(label=y, errors_label=wrong_predictions[y]))
+for i in range(0, 10):
+    precision = 1 - wrong_predictions[i]/digit_count[i]
+    accuracy[i] = precision
+    print("{digit}: {errors_label} ({precision})".format(digit=i, errors_label=wrong_predictions[i], precision=precision))
 
 # Let's plot it!
 fig = plt.figure()
-ax = fig.add_axes([0, 0, 1, 1])
-labels = wrong_predictions.keys()
-errors = wrong_predictions.values()
-ax.bar(labels, errors)
+error_ax = fig.add_subplot(1, 1, 1)  # create an axes object in the figure
+error_ax.set_ylabel("Wrong predictions")
+labels = ['0','1','2','3','4','5','6','7','8','9']
+error_ax.bar(labels, wrong_predictions, color="red")
 plt.show()
