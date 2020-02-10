@@ -84,3 +84,6 @@ while True:
         break
     plt.close()
     i += 1
+
+
+# Let's evaluate the model
