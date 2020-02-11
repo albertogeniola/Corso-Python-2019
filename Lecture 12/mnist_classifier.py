@@ -9,7 +9,7 @@
   Python x64 bit version runs it better as it can leverage large memory space.
 
   Before running this script, make sure you have installed all the required dependencies.
-  pip install pip3 install scikit-learn matplotlib numpy
+  pip3 install scikit-learn matplotlib numpy
 """
 # Importing libraries
 from sklearn.datasets import fetch_openml           # Dataset utility to fetch data from public datasets
@@ -20,6 +20,9 @@ import matplotlib.pyplot as plt
 import numpy as np                                  # Numerical manipulation library
 
 
+# --------------------------------------------------------------------------------------------------
+# DATA COLLECTION PHASE
+# --------------------------------------------------------------------------------------------------
 # Loading public MNIST dataset: 28x28 pixel, grayscale (0 to 255)
 # The mnist dataset contains 70.000 images of hand-written digits (from 0 to 9).
 # Each image is a 28x28 matrix = 784 pixels. Each pixel is in gray scale.
@@ -116,3 +119,5 @@ error_ax.set_ylabel("Wrong predictions")
 labels = ['0','1','2','3','4','5','6','7','8','9']
 error_ax.bar(labels, wrong_predictions, color="red")
 plt.show()
+
+input("press ENTER key to exit")
