@@ -38,7 +38,8 @@ x_train, x_test, y_train, y_test = train_test_split(mnist.data, mnist.target, te
 # --------------------------------------------------------------------------------------------------
 # TRAINING
 # --------------------------------------------------------------------------------------------------
-ml_alg = LogisticRegression(max_iter=500)
+print("Training the algorithm with max_epochs=100")
+ml_alg = LogisticRegression(max_iter=100)
 trained_model = ml_alg.fit(x_train, y_train)
 
 # --------------------------------------------------------------------------------------------------
@@ -83,7 +84,6 @@ plt.show()
 
 
 # Let's plot accuracy
-plt.title("Wrong predictions by digit", fontsize=15)
 fig, axs = plt.subplots(1, 2)
 fig.suptitle('Wrong predictions')
 
