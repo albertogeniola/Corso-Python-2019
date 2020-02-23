@@ -64,9 +64,10 @@ for label, predict in zip(y_test, predictions):
 
 
 # Calculate the misclassification %
-misclassifications_perc = []
+misclassifications_perc = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+label_size = len(y_test)
 for i, num in enumerate(misclassifications):
-    perc = num * 100 / y_test
+    perc = num * 100 / label_size
     misclassifications_perc[i] = perc
 
 
@@ -82,15 +83,13 @@ plt.show()
 
 
 # Let's plot accuracy
-fig = plt.figure()
 plt.title("Wrong predictions by digit", fontsize=15)
-error_ax = fig.add_subplot(1, 1, 1)  # create an axes object in the figure
-perc_ax = fig.add_subplot(1, 1, 2)  # create an axes object in the figure
-error_ax.set_ylabel("Wrong predictions")
-perc_ax.set_ylabel("Wrong predictions")
-labels = ['0','1','2','3','4','5','6','7','8','9']
-error_ax.bar(labels, misclassifications, color="red")
-perc_ax.bar(labels, misclassifications_perc, color="red")
+fig, axs = plt.subplots(1, 2)
+fig.suptitle('Wrong predictions')
+
+labels = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+axs[0, 0].bar(labels, misclassifications, color="blue")
+axs[0, 1].bar(labels, misclassifications_perc, color="red")
 plt.show()
 
 
