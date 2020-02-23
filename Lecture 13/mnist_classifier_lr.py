@@ -88,8 +88,8 @@ fig, axs = plt.subplots(1, 2)
 fig.suptitle('Wrong predictions')
 
 labels = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-axs[0, 0].bar(labels, misclassifications, color="blue")
-axs[0, 1].bar(labels, misclassifications_perc, color="red")
+axs[0].bar(labels, misclassifications, color="blue")
+axs[1].bar(labels, misclassifications_perc, color="red")
 plt.show()
 
 
