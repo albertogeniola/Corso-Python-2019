@@ -1,6 +1,6 @@
 """
 @Author: Alberto Geniola
-@Date: 09/02/2020
+@Date: 22/02/2020
 @Description:
   MNIST image classifier example using Linear Regression.
   Please note that in order to run this script, you might need some RAM memory (>4Gb).
