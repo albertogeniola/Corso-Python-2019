@@ -1,6 +1,6 @@
 """
 @Author: Alberto Geniola
-@Date: 02-03-2020
+#Date: 02-03-2020
 
 This example script shows how simple is to get started with AutoKeras to build ML solvers for
 certain complex tasks as image classification.
