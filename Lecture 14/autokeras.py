@@ -24,7 +24,7 @@ from tensorflow.keras.datasets import mnist
 # --------------------------------------------------------------------------------------------------
 # Builds an image classifier, telling to the AutoKeras system to test up to 10 different models.
 print("Defining classifier...")
-clf = ak.ImageClassifier(max_trials=10)
+clf = ak.ImageClassifier(max_trials=3)
 
 # --------------------------------------------------------------------------------------------------
 # AUTO TUNE
