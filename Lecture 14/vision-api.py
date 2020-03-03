@@ -36,8 +36,8 @@ credentials = service_account.Credentials.from_service_account_file(
 client = vision.ImageAnnotatorClient(credentials=credentials)
 
 # The name of the image file to annotate
-image1 = os.path.abspath('img/image1.jfif')
-#image2 = os.path.abspath('img/image2.jfif')
+#image1 = os.path.abspath('img/image1.jfif')
+image1 = os.path.abspath('img/image2.jfif')
 
 # Loads the image into memory
 with io.open(image1, 'rb') as image_file:
